@@ -1,0 +1,32 @@
+#!/bin/bash
+clear
+#installation commands
+echo -e '\e[0;35m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\e[00m';
+echo -e '\033[1;34m  SUBSCRIBE MY YOUTUBE CHANNEL   \033[0m';
+echo -e '\033[1;34m  youtube.com/linuxinetyt   \033[0m';
+echo -e '\e[0;35m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\e[00m';
+
+echo -e '\033[1;34m SUBSCRIBE MY YOUTUBE CHANNEL FOR MORE UNIQUE VIDEOS\033[0m' ;
+echo -e '\033[1;34m  youtube.com/linuxinetyt   \033[0m';
+
+am start -a android.intent.action.VIEW -d https://youtube.com/linuxinetyt &> /dev/null ;
+
+echo -e "\e[1;34m[*] \033[32mInstalling dependencies...... \033[0m";
+
+apt-get update -y &> /dev/null;
+apt-get upgrade -y &> /dev/null;
+apt-get install curl wget -y &> /dev/null;
+
+cd /tmp &> /dev/null;
+
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall &> /dev/null;
+
+chmod 755 msfinstall &> /dev/null;
+echo -e "\e[1;34m[*] \033[32mInstalling Metasploit.......\033[0m";
+
+echo -e "\e[1;34m[*] \033[32m Please wait for 10 - 15 minutes>>>>> until it will install Metasploit......\033[0m";
+
+./msfinstall
+
+echo -e "\e[1;34m[*] \033[32m >>> Now Run   msfconsole  in the terminal.............\033[0m";
+
